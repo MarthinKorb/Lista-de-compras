@@ -10,8 +10,8 @@ class AppDrawer extends StatelessWidget {
           AppBar(title: Text('Bem vindo!')),
           Divider(),
           ListTile(
-            leading: Icon(Icons.shopping_bag),
-            title: Text('Loja'),
+            leading: Icon(Icons.shopping_bag_outlined),
+            title: Text('Meus Produtos'),
             onTap: () {
               Navigator.of(context).pushReplacementNamed(AppRoutes.HOME);
             },
@@ -21,7 +21,7 @@ class AppDrawer extends StatelessWidget {
             leading: Icon(Icons.payment),
             title: Text('Pedidos'),
             onTap: () {
-              Navigator.of(context).pushReplacementNamed(AppRoutes.MY_ORDERS);
+              Navigator.of(context).pushReplacementNamed(AppRoutes.ORDERS);
             },
           ),
           Divider(),
@@ -33,14 +33,14 @@ class AppDrawer extends StatelessWidget {
                   .pushReplacementNamed(AppRoutes.PRODUCTS_MAINTENANCE);
             },
           ),
-          Divider(),
-          ListTile(
-            leading: Icon(Icons.sync_outlined),
-            title: Text('Sincronizar'),
-            onTap: () {
-              Navigator.of(context).pushReplacementNamed(AppRoutes.SYNC_PAGE);
-            },
-          ),
+          // Divider(),
+          // ListTile(
+          //   leading: Icon(Icons.sync_outlined),
+          //   title: Text('Sincronizar'),
+          //   onTap: () {
+          //     Navigator.of(context).pushReplacementNamed(AppRoutes.SYNC_PAGE);
+          //   },
+          // ),
         ],
       ),
     );

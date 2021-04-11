@@ -12,13 +12,13 @@ class Product with ChangeNotifier {
   final String category;
   int isFavorite = 0;
   Product({
-    @required this.id,
-    @required this.title,
-    @required this.description,
-    @required this.price,
-    @required this.image,
-    @required this.category,
-    @required this.isFavorite,
+    this.id,
+    this.title,
+    this.description,
+    this.price,
+    this.image,
+    this.category,
+    this.isFavorite,
   });
 
   void toggleFavorite() async {

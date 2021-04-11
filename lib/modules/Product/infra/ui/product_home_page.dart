@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lista_de_compras/app_routes.dart';
 import 'package:lista_de_compras/modules/Cart/domain/cart_provider.dart';
-import 'package:lista_de_compras/modules/Product/infra/ui/product_grid.dart';
+import 'package:lista_de_compras/modules/Product/infra/ui/products_view.dart';
 import 'package:lista_de_compras/shared/widgets/app_drawer.dart';
 import 'package:lista_de_compras/shared/widgets/badge.dart';
 
@@ -25,9 +25,7 @@ class _ProductHomePageState extends State<ProductHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: _showFavoritesOnly
-            ? Text('Meus Favoritos')
-            : Text('Lista de Produtos'),
+        title: _showFavoritesOnly ? Text('Meus Favoritos') : Text(''),
         actions: [
           IconButton(
             icon: _showListMode
@@ -44,7 +42,7 @@ class _ProductHomePageState extends State<ProductHomePage> {
         ],
       ),
       drawer: AppDrawer(),
-      body: ProductGrid(
+      body: ProductsView(
         showOnlyFavorites: _showFavoritesOnly,
         showListMode: _showListMode,
       ),

@@ -45,7 +45,7 @@ class ProductsProvider with ChangeNotifier {
     });
   }
 
-  void removeProduct(Product product) async {
+  Future<void> removeProduct(Product product) async {
     await DatabaseService().deleteProductById('product', product.id.toString());
     _items
       ..clear()

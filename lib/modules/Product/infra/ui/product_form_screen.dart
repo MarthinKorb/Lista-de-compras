@@ -173,7 +173,7 @@ class _ProductFormScreenState extends State<ProductFormScreen> {
                         filled: true,
                       ),
                       initialValue: _formData['image'] ??
-                          'https://s2.glbimg.com/Oo5NXrkvypd6NlsHL1tuEfHXsms=/680x511/s.glbimg.com/po/tt/f/original/2012/07/27/meme-que-imortalizou-a-pose-do-fisico.jpg',
+                          'https://icons-for-free.com/iconfiles/png/512/gallery+image+landscape+mobile+museum+open+line+icon-1320183049020185924.png',
                       keyboardType: TextInputType.url,
                       textInputAction: TextInputAction.done,
                       focusNode: _imageUrlFocusNode,

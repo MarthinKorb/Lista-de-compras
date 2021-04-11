@@ -8,18 +8,7 @@ class ProductsRepository implements IProductsRepository {
   ProductsRepository(this.databaseService);
 
   @override
-  Future<void> create(Product product) async {
-    await this.databaseService.insert('product', product.toMap());
-  }
-
-  @override
-  Future<List<Product>> getFavorites() {
-    // TODO: implement getFavorites
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<List<Product>> load() async {
+  Future<List<Product>> getProducts() async {
     var records = await this.databaseService.query("Product");
     return List.generate(records.length, (i) {
       return Product(
@@ -32,6 +21,18 @@ class ProductsRepository implements IProductsRepository {
         isFavorite: records[i]["isFavorite"] ?? 0,
       );
     });
+  }
+
+  @override
+  Future<void> create(Product product) async {
+    await this.databaseService.insert('product', product.toMap());
+  }
+
+  @override
+  Future<List<Product>> getFavorites() async {
+    return await this
+        .databaseService
+        .query("product", where: "isFavorite=?", args: [1]);
   }
 
   @override

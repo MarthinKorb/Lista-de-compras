@@ -6,11 +6,11 @@ import 'package:lista_de_compras/modules/Product/infra/ui/product_item_tile.dart
 import 'package:lista_de_compras/shared/widgets/info_empty_list.dart';
 import 'package:provider/provider.dart';
 
-class ProductGrid extends StatelessWidget {
+class ProductsView extends StatelessWidget {
   final bool showOnlyFavorites;
   final bool showListMode;
 
-  const ProductGrid({Key key, this.showOnlyFavorites, this.showListMode})
+  const ProductsView({Key key, this.showOnlyFavorites, this.showListMode})
       : super(key: key);
 
   @override
@@ -69,22 +69,6 @@ class ProductGrid extends StatelessWidget {
                       );
                     },
                   );
-        // : GridView.builder(
-        //     itemCount: loadedProducts.length,
-        //     padding: EdgeInsets.all(10),
-        //     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        //       crossAxisCount: showCompactGrid ? 2 : 1,
-        //       childAspectRatio: 3 / 2,
-        //       crossAxisSpacing: 10,
-        //       mainAxisSpacing: 10,
-        //     ),
-        //     itemBuilder: (context, index) {
-        //       return ChangeNotifierProvider.value(
-        //         value: loadedProducts[index],
-        //         child: ProductGridItem(),
-        //       );
-        //     },
-        //   );
       },
     );
   }
