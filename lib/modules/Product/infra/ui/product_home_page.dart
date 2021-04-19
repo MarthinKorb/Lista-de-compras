@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:lista_de_compras/app_routes.dart';
 import 'package:lista_de_compras/modules/Cart/domain/cart_provider.dart';
+import 'package:lista_de_compras/modules/Order/infra/ui/orders_screen.dart';
+import 'package:lista_de_compras/modules/Product/infra/ui/products_maintenance.dart';
 import 'package:lista_de_compras/modules/Product/infra/ui/products_view.dart';
 import 'package:lista_de_compras/shared/widgets/app_drawer.dart';
 import 'package:lista_de_compras/shared/widgets/badge.dart';
+import 'package:lista_de_compras/shared/widgets/my_bottom_app_bar.dart';
+import 'package:lista_de_compras/shared/widgets/my_floating_action_button.dart';
 
 import 'package:provider/provider.dart';
 
@@ -20,6 +24,8 @@ class ProductHomePage extends StatefulWidget {
 class _ProductHomePageState extends State<ProductHomePage> {
   bool _showFavoritesOnly = false;
   bool _showListMode = true;
+
+  PageController _myPage = PageController(initialPage: 0);
 
   @override
   Widget build(BuildContext context) {
@@ -42,10 +48,20 @@ class _ProductHomePageState extends State<ProductHomePage> {
         ],
       ),
       drawer: AppDrawer(),
-      body: ProductsView(
-        showOnlyFavorites: _showFavoritesOnly,
-        showListMode: _showListMode,
+      body: PageView(
+        controller: _myPage,
+        children: [
+          ProductsView(
+            showOnlyFavorites: _showFavoritesOnly,
+            showListMode: _showListMode,
+          ),
+          OrdersScreen(),
+          ProductsMaintenance(),
+        ],
       ),
+      floatingActionButton: MyFloatingActionButton(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: MyBottomAppBar(myPage: _myPage),
     );
   }
 

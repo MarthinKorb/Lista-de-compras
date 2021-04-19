@@ -4,7 +4,6 @@ import 'package:lista_de_compras/modules/Product/domain/product.dart';
 import 'package:lista_de_compras/modules/Product/domain/products_provider.dart';
 import 'package:lista_de_compras/modules/Product/infra/ui/product_item.dart';
 import 'package:lista_de_compras/shared/services/database_service.dart';
-import 'package:lista_de_compras/shared/widgets/app_drawer.dart';
 import 'package:lista_de_compras/shared/widgets/info_empty_list.dart';
 import 'package:provider/provider.dart';
 
@@ -30,16 +29,8 @@ class ProductsMaintenance extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Text('Manutenção de Produtos'),
-        actions: [
-          IconButton(
-            icon: Icon(Icons.add),
-            onPressed: () {
-              Navigator.of(context).pushNamed(AppRoutes.PRODUCT_FORM);
-            },
-          ),
-        ],
       ),
-      drawer: AppDrawer(),
+      // drawer: AppDrawer(),
       body: FutureBuilder<List<Product>>(
         future: Provider.of<ProductsProvider>(context).loadProductsFromDB(),
         builder: (context, snapshot) {
@@ -58,6 +49,13 @@ class ProductsMaintenance extends StatelessWidget {
               ],
             ),
           );
+        },
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.green,
+        child: Icon(Icons.add),
+        onPressed: () {
+          Navigator.of(context).pushNamed(AppRoutes.PRODUCT_FORM);
         },
       ),
     );

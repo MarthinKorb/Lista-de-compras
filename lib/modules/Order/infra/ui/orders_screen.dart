@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lista_de_compras/modules/Order/domain/orders_provider.dart';
 import 'package:lista_de_compras/modules/Order/infra/ui/order_widget.dart';
-import 'package:lista_de_compras/shared/widgets/app_drawer.dart';
 import 'package:provider/provider.dart';
 
 class OrdersScreen extends StatelessWidget {
@@ -10,10 +9,6 @@ class OrdersScreen extends StatelessWidget {
     final ordersProvider = Provider.of<OrdersProvider>(context, listen: false);
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Minhas Listas'),
-      ),
-      drawer: AppDrawer(),
       body: ordersProvider.orders.length > 0
           ? ListView.builder(
               itemCount: ordersProvider.orders.length,

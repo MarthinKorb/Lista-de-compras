@@ -72,6 +72,7 @@ class ProductItem extends StatelessWidget {
                     );
 
                     // productsProvider.removeProduct(product);
+                    // ignore: dead_code
                     ScaffoldMessenger.of(context).hideCurrentSnackBar();
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(

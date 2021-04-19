@@ -38,7 +38,7 @@ class CartItemWidget extends StatelessWidget {
                   borderRadius: BorderRadius.circular(6),
                 ),
                 child: Container(
-                  child: FlatButton(
+                  child: TextButton(
                     onPressed: () => Navigator.of(ctx).pop(false),
                     child: Text(
                       'Não',
@@ -52,9 +52,9 @@ class CartItemWidget extends StatelessWidget {
                   color: Theme.of(context).errorColor,
                   borderRadius: BorderRadius.circular(6),
                 ),
-                child: FlatButton(
+                child: TextButton(
                   onPressed: () {
-                    Scaffold.of(context).showSnackBar(
+                    ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content:
                             Text('${cartItem.title} removido do carrinho.'),
